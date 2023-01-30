@@ -2,7 +2,7 @@ export const proxy = [
   'https://api.pikpakshare.workers.dev',
 ]
 
-export const serverNumbers = [
+export const serverNumbersDef = [
   '0393',
   '0394',
   '0395',

@@ -289,7 +289,7 @@ import streamSaver from 'streamsaver'
 import { DropdownMixedOption } from 'naive-ui/lib/dropdown/src/interface'
 import axios, { AxiosInstance } from 'axios'
 import { useListStoreWithOut } from '../store/modules/list'
-import { serverNumbers } from '../config'
+import { serverNumbersDef } from '../config'
 
   const filesList = ref()
   const route = useRoute()
@@ -619,7 +619,7 @@ import { serverNumbers } from '../config'
     if(aria2.dir === undefined) {
       aria2.dir = true
     }
-    aria2.serverNumbers = serverNumbers
+    aria2.serverNumbers = serverNumbersDef
     // `叠加策略`硬编：
     aria2.batchStrategy = 'series'
     if(aria2.host) {

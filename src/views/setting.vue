@@ -68,7 +68,7 @@
           <n-form-item label="服务器序号：" feedback="替换下载链接域名中的服务器序号。序号请参考上面「Aria2设置」里的「服务器序号列表」">
             <n-auto-complete
               v-model:value="downloadConfig.serverNumber"
-              :options="serverNumbers"
+              :options="serverNumbersDef"
               placeholder="下载服务器序号"
               clearable
             ></n-auto-complete>
@@ -90,7 +90,7 @@
           <n-form-item label="服务器序号：" feedback="替换播放链接域名中的服务器序号。序号请参考上面「Aria2设置」里的「服务器序号列表」">
             <n-auto-complete
               v-model:value="playConfig.serverNumber"
-              :options="serverNumbers"
+              :options="serverNumbersDef"
               placeholder="服务器序号"
               clearable
             ></n-auto-complete>
@@ -172,7 +172,7 @@ import {
 import { ZoomQuestion, Download, Video, Wifi, } from '@vicons/tabler'
 import {
   proxy as proxyDefault,
-  serverNumbers
+  serverNumbersDef
 } from '../config'
 
 const logs = ref([
@@ -220,7 +220,7 @@ const aria2Data = ref({
   restrictConnections: false,
   // 使用多少个链接下载同一个文件
   batchUrlNum: 5,
-  serverNumbers: serverNumbers,
+  serverNumbers: serverNumbersDef,
   // 叠加策略
   batchStrategy: 'series',
   // 反代域名
@@ -301,7 +301,7 @@ onMounted(() => {
     aria2.dir = true
   }
   if(aria2.serverNumbers === undefined) {
-    aria2.serverNumbers = serverNumbers
+    aria2.serverNumbers = serverNumbersDef
   }
   if(aria2.host) {
     aria2Data.value = aria2
